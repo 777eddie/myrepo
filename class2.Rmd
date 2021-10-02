@@ -1,0 +1,45 @@
+---
+title: "classexample"
+author: "Kristin Edison"
+date: "9/14/2021"
+output:
+  word_document: default
+  html_document: default
+---
+```{r trees}
+trees_data <- trees
+head(trees_data)
+```
+
+```{r setup, include=FALSE}
+pairs(trees_data)
+pairs(trees_data, pch = 20, col = 'red')
+```
+
+```{r pairs}
+pairs(trees_data, pch = 1, col = 'red')
+```
+```{r}
+names(trees_data)
+```
+
+```{r create m1}
+m1 <- lm(Volume ~ Girth, data = trees)
+```
+
+
+```{r}
+m1$fitted.values
+```
+
+```{r}
+abline(m1)
+```
+
+```{r}
+sum((trees$Volume - m1$fitted.values)^2)/length(trees$Volume)
+```
+```{r residual is ap not pa}
+m1$residuals
+```
+
